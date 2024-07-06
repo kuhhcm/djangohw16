@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie list</h1>
+    {% for movie in page.object_list %}
+        <h2>{{ movie.name }}</h2>
+    {% endfor %}
+
+    <div>
+        <p>Page {{ page.number }}</p>
+        {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}"><</a>
+        {% endif %}
+    
+        {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}">></a>
+        {% endif %}
+    </div>
+
+</body>
+</html>
